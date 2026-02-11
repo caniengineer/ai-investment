@@ -1,0 +1,34 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: alpha
+      POSTGRES_PASSWORD: alpha
+      POSTGRES_DB: alphaagent
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alpha -d alphaagent"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://alpha:alpha@db:5432/alphaagent
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./seed_data:/app/seed_data:ro
+      - ./prompts:/app/prompts:ro
+
+volumes:
+  pgdata:
