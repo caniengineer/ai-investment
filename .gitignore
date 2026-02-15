@@ -8,3 +8,15 @@ __pycache__/
 venv/
 dist/
 build/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/test-results/
+frontend/playwright-report/
+
+# Gas Town (added by gt)
+.runtime/
+.claude/commands/
+.logs/
+.beads/
