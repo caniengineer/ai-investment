@@ -13,6 +13,7 @@ from sqlalchemy.orm import Session
 from app.core.llm import LLMProvider
 from app.core.tools import fetch_market_data, execute_backtest, evaluate_results
 from app.core.backtest import run_backtest
+from app.core.playbook import Playbook
 from app.db.models import BacktestResult
 from app.observability.logger import log_llm_call, log_agent_action
 
@@ -138,7 +139,11 @@ def run(strategy: dict, llm: LLMProvider, db: Session, strategy_id: str) -> dict
 
 
 def _self_heal(strategy: dict, metrics: dict, evaluation: dict, llm: LLMProvider, db: Session) -> dict:
-    """Ask the LLM to diagnose and fix a failing strategy."""
+    """Ask the LLM to diagnose and fix a failing strategy, using playbook context."""
+    # Inject relevant playbook sections into the healing prompt
+    playbook = Playbook(db)
+    playbook_context = playbook.render(sections=["COMMON MISTAKES", "EVALUATION PATTERNS", "PARAMETER GUIDANCE"])
+
     prompt = f"""The following strategy failed its backtest evaluation.
 
 Strategy:
@@ -150,11 +155,14 @@ Backtest metrics:
 Evaluation:
 {json.dumps(evaluation, indent=2)}
 
-Diagnose why it failed and produce an updated strategy with adjusted parameters.
+{playbook_context}
+
+Using the playbook insights above, diagnose why it failed and produce an updated strategy with adjusted parameters.
 Return ONLY the updated strategy as JSON."""
 
     messages = [{"role": "user", "content": prompt}]
-    response = llm.complete(messages, system=HEAL_PROMPT)
+    heal_system = HEAL_PROMPT
+    response = llm.complete(messages, system=heal_system)
     log_llm_call(db, response, tool_called="self_heal")
 
     # Parse updated strategy

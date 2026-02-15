@@ -83,6 +83,19 @@ class AgentLog(Base):
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
 
+class PlaybookEntry(Base):
+    __tablename__ = "playbook_entries"
+
+    id = Column(String, primary_key=True, default=_uuid)
+    entry_id = Column(String, unique=True, nullable=False)  # e.g. "str-00001"
+    section = Column(String, nullable=False)  # e.g. "STRATEGIES & INSIGHTS"
+    content = Column(Text, nullable=False)
+    helpful_count = Column(Integer, default=0)
+    harmful_count = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+
 class LLMMetric(Base):
     __tablename__ = "llm_metrics"
 

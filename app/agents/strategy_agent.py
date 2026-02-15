@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 
 from app.core.llm import LLMProvider, LLMResponse
 from app.core.tools import TOOL_SCHEMAS, execute_tool
+from app.core.playbook import Playbook
 from app.observability.logger import log_llm_call, log_agent_action
 
 logger = logging.getLogger("alphaagent.strategy_agent")
@@ -26,15 +27,23 @@ def run(user_message: str, llm: LLMProvider, db: Session) -> dict:
     """Run the strategy generation agent.
 
     Uses function calling to let the LLM decide which tools to invoke.
+    Injects playbook insights into the system prompt for context-aware generation.
     Returns the generated strategy as a dict.
     """
     log_agent_action(db, "strategy_agent", "start", f"User request: {user_message}")
+
+    # Build system prompt with playbook context
+    playbook = Playbook(db)
+    playbook_context = playbook.render(sections=["STRATEGIES & INSIGHTS", "PARAMETER GUIDANCE"])
+    system = SYSTEM_PROMPT
+    if playbook_context:
+        system = f"{SYSTEM_PROMPT}\n\n{playbook_context}"
 
     messages = [{"role": "user", "content": user_message}]
 
     # Allow up to 5 tool-calling rounds
     for round_num in range(5):
-        response: LLMResponse = llm.function_call(messages, STRATEGY_TOOLS, system=SYSTEM_PROMPT)
+        response: LLMResponse = llm.function_call(messages, STRATEGY_TOOLS, system=system)
         log_llm_call(db, response, tool_called=response.tool_calls[0]["name"] if response.tool_calls else None)
 
         if not response.tool_calls:

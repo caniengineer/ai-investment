@@ -8,9 +8,13 @@ import logging
 from sqlalchemy.orm import Session
 
 from app.core.llm import LLMProvider
+from app.core.playbook import Playbook
 from app.db.models import Strategy
-from app.agents import strategy_agent, backtest_agent, deploy_agent
+from app.agents import strategy_agent, backtest_agent, deploy_agent, reflector, curator
 from app.observability.logger import log_agent_action
+
+# Run curator every N strategy completions (batches reflections for efficiency)
+CURATOR_FREQUENCY = 1  # Set higher (e.g., 3-5) in production for efficiency
 
 logger = logging.getLogger("alphaagent.orchestrator")
 
@@ -84,6 +88,40 @@ def process_message(user_message: str, llm: LLMProvider, db: Session) -> dict:
         db=db,
     )
 
+    # --- ACE Feedback Loop: Reflect → Curate ---
+    logger.info("=" * 60)
+    logger.info("ACE LOOP: Reflect & Curate")
+    logger.info("=" * 60)
+
+    playbook = Playbook(db)
+    reflection = reflector.reflect(
+        strategy=backtest_result.get("strategy", strategy_dict),
+        metrics=backtest_result.get("metrics", {}),
+        passed=backtest_result.get("passed", False),
+        playbook=playbook,
+        llm=llm,
+        db=db,
+        strategy_id=strategy_id,
+    )
+
+    # Run curator (respecting frequency setting)
+    _run_count = getattr(process_message, "_run_count", 0) + 1
+    process_message._run_count = _run_count
+
+    curation_result = None
+    if _run_count % CURATOR_FREQUENCY == 0:
+        curation_result = curator.curate(
+            reflections=[reflection],
+            playbook=playbook,
+            llm=llm,
+            db=db,
+        )
+        logger.info("Curator applied: %s", curation_result)
+
+    log_agent_action(db, "orchestrator", "ace_loop_complete",
+                     f"Reflection done. Curation: {'applied' if curation_result else 'skipped'}",
+                     strategy_id)
+
     log_agent_action(db, "orchestrator", "complete",
                      f"Pipeline complete for strategy {strategy_id}", strategy_id)
 
@@ -107,6 +145,11 @@ def process_message(user_message: str, llm: LLMProvider, db: Session) -> dict:
             "explanation": backtest_result.get("explanation", ""),
         },
         "deployment": deploy_result,
+        "ace_feedback": {
+            "reflection": reflection,
+            "curation": curation_result,
+            "playbook_stats": playbook.get_stats(),
+        },
         "summary": _build_summary(strategy, backtest_result, deploy_result),
     }
 
