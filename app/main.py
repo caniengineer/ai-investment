@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import init_db, SessionLocal
 from app.core.rag import seed_knowledge_base
 from app.core.playbook import seed_playbook
-from app.routes import chat, strategies, rag, metrics, playbook
+from app.routes import chat, strategies, rag, metrics, playbook, papers
 
 # Configure logging — print everything to console for demo visibility
 logging.basicConfig(
@@ -92,6 +92,7 @@ app.include_router(strategies.router, prefix="/api/v1", tags=["Strategies"])
 app.include_router(rag.router, prefix="/api/v1", tags=["RAG"])
 app.include_router(metrics.router, prefix="/api/v1", tags=["Metrics"])
 app.include_router(playbook.router, prefix="/api/v1", tags=["Playbook"])
+app.include_router(papers.router, prefix="/api/v1", tags=["Paper Lab"])
 
 
 @app.get("/api/v1/health", tags=["Health"])

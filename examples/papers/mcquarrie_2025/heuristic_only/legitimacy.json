@@ -1,0 +1,114 @@
+{
+  "replicability_score": 30,
+  "rigor_score": 47,
+  "internal_consistency_score": 97,
+  "overall_score": 59,
+  "verdict": "Weak: material methodological gaps or inconsistencies; do not trade without independent replication.",
+  "checks": [
+    {
+      "check": "citations",
+      "status": "warn",
+      "message": "24 references, 20 in-text citations, 1 inconsistencies",
+      "expected": null,
+      "observed": null,
+      "targets": []
+    },
+    {
+      "check": "citation_year",
+      "status": "warn",
+      "message": "In-text 'Shumway 1994)' but reference list has Shumway [1997]",
+      "expected": null,
+      "observed": null,
+      "targets": [
+        "Shumway"
+      ]
+    },
+    {
+      "check": "citation_uncited",
+      "status": "warn",
+      "message": "References never cited in text: Berk 2020, Davis 2000, Harvey 2016, Ibbotson 2020",
+      "expected": null,
+      "observed": null,
+      "targets": []
+    }
+  ],
+  "red_flags": [
+    {
+      "code": "NO_TRANSACTION_COSTS",
+      "severity": "high",
+      "message": "Results are not shown net of transaction costs / bid-ask spreads (long-short factor returns).",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "LONG_SHORT_PAPER_RETURNS",
+      "severity": "medium",
+      "message": "Evidence relies on long-short paper portfolios; long-only implementation may differ materially.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "NO_SIGNIFICANCE_TESTS",
+      "severity": "medium",
+      "message": "No t-statistics / p-values / confidence intervals reported for the headline differences.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "NO_OUT_OF_SAMPLE",
+      "severity": "medium",
+      "message": "No explicit out-of-sample or hold-out validation.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "SURVIVORSHIP_UNADDRESSED",
+      "severity": "low",
+      "message": "Survivorship / delisting bias is not discussed.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "LOOKAHEAD_UNADDRESSED",
+      "severity": "low",
+      "message": "Look-ahead / reporting-lag handling is not stated.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "NO_ROBUSTNESS",
+      "severity": "low",
+      "message": "No robustness checks (alternative periods, definitions, weights) listed.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "PROPRIETARY_DATA",
+      "severity": "low",
+      "message": "Uses proprietary data: CRSP.",
+      "evidence": "Public substitute: Kenneth French portfolios (built from CRSP) or yfinance",
+      "source": "heuristic"
+    },
+    {
+      "code": "PROPRIETARY_DATA",
+      "severity": "low",
+      "message": "Uses proprietary data: Ibbotson SBBI Yearbook.",
+      "evidence": "Public substitute: Kenneth French size portfolios (bottom quintile/decile) for small stocks; French market return for large stocks",
+      "source": "heuristic"
+    },
+    {
+      "code": "PROPRIETARY_DATA",
+      "severity": "medium",
+      "message": "Uses proprietary data: UBS Global Investment Returns Yearbook.",
+      "evidence": "No public substitute identified.",
+      "source": "heuristic"
+    },
+    {
+      "code": "CITATION_MISMATCH",
+      "severity": "low",
+      "message": "In-text 'Shumway 1994)' but reference list has Shumway [1997]",
+      "evidence": "",
+      "source": "citations"
+    }
+  ]
+}

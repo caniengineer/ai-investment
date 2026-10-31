@@ -1,0 +1,554 @@
+{
+  "replicability_score": 90,
+  "rigor_score": 38,
+  "internal_consistency_score": 39,
+  "overall_score": 54,
+  "verdict": "Weak: material methodological gaps or inconsistencies; do not trade without independent replication.",
+  "checks": [
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_all_1926_2023_years: 1926-2023 minus 0 excluded = 98 years, reported 98",
+      "expected": 98.0,
+      "observed": 98.0,
+      "targets": [
+        "ex3_all_1926_2023_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_three_period_1926_1963_years: 1926-1963 minus 0 excluded = 38 years, reported 38",
+      "expected": 38.0,
+      "observed": 38.0,
+      "targets": [
+        "ex3_three_period_1926_1963_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_three_period_1964_1981_years: 1964-1981 minus 0 excluded = 18 years, reported 18",
+      "expected": 18.0,
+      "observed": 18.0,
+      "targets": [
+        "ex3_three_period_1964_1981_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_three_period_1982_2023_years: 1982-2023 minus 0 excluded = 42 years, reported 42",
+      "expected": 42.0,
+      "observed": 42.0,
+      "targets": [
+        "ex3_three_period_1982_2023_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_1926_1941_years: 1926-1941 minus 0 excluded = 16 years, reported 16",
+      "expected": 16.0,
+      "observed": 16.0,
+      "targets": [
+        "ex3_six_period_1926_1941_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_1942_1963_years: 1942-1963 minus 0 excluded = 22 years, reported 22",
+      "expected": 22.0,
+      "observed": 22.0,
+      "targets": [
+        "ex3_six_period_1942_1963_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_1964_1981_years: 1964-1981 minus 0 excluded = 18 years, reported 18",
+      "expected": 18.0,
+      "observed": 18.0,
+      "targets": [
+        "ex3_six_period_1964_1981_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_1982_1999_years: 1982-1999 minus 0 excluded = 18 years, reported 18",
+      "expected": 18.0,
+      "observed": 18.0,
+      "targets": [
+        "ex3_six_period_1982_1999_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_2000_2017_years: 2000-2017 minus 0 excluded = 18 years, reported 18",
+      "expected": 18.0,
+      "observed": 18.0,
+      "targets": [
+        "ex3_six_period_2000_2017_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_six_period_2018_2023_years: 2018-2023 minus 0 excluded = 6 years, reported 6",
+      "expected": 6.0,
+      "observed": 6.0,
+      "targets": [
+        "ex3_six_period_2018_2023_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_drop4_years: 1926-2023 minus 4 excluded = 94 years, reported 94",
+      "expected": 94.0,
+      "observed": 94.0,
+      "targets": [
+        "ex3_drop4_years"
+      ]
+    },
+    {
+      "check": "period_length",
+      "status": "pass",
+      "message": "ex3_dropww2_years: 1926-2023 minus 4 excluded = 94 years, reported 94",
+      "expected": 94.0,
+      "observed": 94.0,
+      "targets": [
+        "ex3_dropww2_years"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported eq 161 bp; difference of ex3_all_1926_2023_small, ex3_all_1926_2023_sp gives 161",
+      "expected": 161.0,
+      "observed": 161.0,
+      "targets": [
+        "txt_small_spread_all",
+        "ex3_all_1926_2023_small",
+        "ex3_all_1926_2023_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small / S&P terminal wealth (text): reported gt 4 multiple; wealth_ratio of ex3_all_1926_2023_small, ex3_all_1926_2023_sp gives 4.142",
+      "expected": 4.1419,
+      "observed": 4.0,
+      "targets": [
+        "txt_wealth_4x",
+        "ex3_all_1926_2023_small",
+        "ex3_all_1926_2023_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported eq 7 bp; difference of ex3_three_period_1926_1963_small, ex3_three_period_1926_1963_sp gives 7",
+      "expected": 7.0,
+      "observed": 7.0,
+      "targets": [
+        "txt_spread_1926_1963",
+        "ex3_three_period_1926_1963_small",
+        "ex3_three_period_1926_1963_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported eq -17 bp; difference of ex3_three_period_1982_2023_small, ex3_three_period_1982_2023_sp gives -17",
+      "expected": -17.0,
+      "observed": -17.0,
+      "targets": [
+        "txt_spread_1982_2023",
+        "ex3_three_period_1982_2023_small",
+        "ex3_three_period_1982_2023_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported approx -400 bp; difference of ex3_six_period_1926_1941_small, ex3_six_period_1926_1941_sp gives -420",
+      "expected": -420.0,
+      "observed": -400.0,
+      "targets": [
+        "txt_spread_1926_1941",
+        "ex3_six_period_1926_1941_small",
+        "ex3_six_period_1926_1941_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported approx 400 bp; difference of ex3_six_period_1942_1963_small, ex3_six_period_1942_1963_sp gives 370",
+      "expected": 370.0,
+      "observed": 400.0,
+      "targets": [
+        "txt_spread_1942_1963",
+        "ex3_six_period_1942_1963_small",
+        "ex3_six_period_1942_1963_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported approx 800 bp; difference of ex3_three_period_1964_1981_small, ex3_three_period_1964_1981_sp gives 767",
+      "expected": 767.0,
+      "observed": 800.0,
+      "targets": [
+        "txt_spread_1964_1981",
+        "ex3_three_period_1964_1981_small",
+        "ex3_three_period_1964_1981_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported eq -8 bp; difference of ex3_drop4_small, ex3_drop4_sp gives -8",
+      "expected": -8.0,
+      "observed": -8.0,
+      "targets": [
+        "txt_drop4_spread",
+        "ex3_drop4_small",
+        "ex3_drop4_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "Small minus S&P (text): reported eq 41 bp; difference of ex3_dropww2_small, ex3_dropww2_sp gives 41",
+      "expected": 41.0,
+      "observed": 41.0,
+      "targets": [
+        "txt_dropww2_spread",
+        "ex3_dropww2_small",
+        "ex3_dropww2_sp"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "S&P fund / DFA microcap wealth (text): reported approx 2 multiple; ratio of ex1_sp_1999, ex1_dfa_1999 gives 1.818",
+      "expected": 1.8176,
+      "observed": 2.0,
+      "targets": [
+        "txt_ex1_almost_twice",
+        "ex1_sp_1999",
+        "ex1_dfa_1999"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "DFA microcap / S&P fund wealth (1999-2017) (text): reported approx 2 multiple; ratio of ex1_dfa_2017, ex1_sp_reset_2017 gives 2.164",
+      "expected": 2.164,
+      "observed": 2.0,
+      "targets": [
+        "txt_ex1_double",
+        "ex1_dfa_2017",
+        "ex1_sp_reset_2017"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "DFA Large Value / Total Market wealth (1993-2007) (text): reported approx 1.3 multiple; ratio of ex2_dfa_2007, ex2_vtsm_2007 gives 1.312",
+      "expected": 1.3122,
+      "observed": 1.3,
+      "targets": [
+        "txt_ex2_30pct_more",
+        "ex2_dfa_2007",
+        "ex2_vtsm_2007"
+      ]
+    },
+    {
+      "check": "derivation",
+      "status": "pass",
+      "message": "DFA Large Value / Total Market wealth (2007-2021) (text): reported approx 0.7 multiple; ratio of ex2_dfa_reset_2021, ex2_vtsm_2021 gives 0.7001",
+      "expected": 0.7001,
+      "observed": 0.7,
+      "targets": [
+        "txt_ex2_30pct_less",
+        "ex2_dfa_reset_2021",
+        "ex2_vtsm_2021"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "Small Stocks 1926-2023 reported 11.83%; compounding sub-periods [three_period: 1926-1963:10.3%, 1964-1981:13.54%, 1982-2023:11.5%] gives 11.40% (arith 11.41%), gap +43 bp",
+      "expected": 11.404,
+      "observed": 11.83,
+      "targets": [
+        "ex3_all_1926_2023_small",
+        "ex3_three_period_1926_1963_small",
+        "ex3_three_period_1964_1981_small",
+        "ex3_three_period_1982_2023_small"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "Small Stocks 1926-2023 reported 11.83%; compounding sub-periods [six_period: 1926-1941:-1.2%, 1942-1963:19.5%, 1964-1981:13.5%, 1982-1999:12.8%, 2000-2017:10%, 2018-2023:7.8%] gives 11.13% (arith 11.33%), gap +70 bp",
+      "expected": 11.127,
+      "observed": 11.83,
+      "targets": [
+        "ex3_all_1926_2023_small",
+        "ex3_six_period_1926_1941_small",
+        "ex3_six_period_1942_1963_small",
+        "ex3_six_period_1964_1981_small",
+        "ex3_six_period_1982_1999_small",
+        "ex3_six_period_2000_2017_small",
+        "ex3_six_period_2018_2023_small"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "pass",
+      "message": "Small Stocks 1926-1963 reported 10.3%; compounding sub-periods [six_period: 1926-1941:-1.2%, 1942-1963:19.5%] gives 10.30% (arith 10.78%), gap -0 bp",
+      "expected": 10.302,
+      "observed": 10.3,
+      "targets": [
+        "ex3_three_period_1926_1963_small",
+        "ex3_six_period_1926_1941_small",
+        "ex3_six_period_1942_1963_small"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "Small Stocks 1982-2023 reported 11.5%; compounding sub-periods [six_period: 1982-1999:12.8%, 2000-2017:10%, 2018-2023:7.8%] gives 10.87% (arith 10.89%), gap +63 bp",
+      "expected": 10.871,
+      "observed": 11.5,
+      "targets": [
+        "ex3_three_period_1982_2023_small",
+        "ex3_six_period_1982_1999_small",
+        "ex3_six_period_2000_2017_small",
+        "ex3_six_period_2018_2023_small"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "S&P 90/500 1926-2023 reported 10.22%; compounding sub-periods [three_period: 1926-1963:10.23%, 1964-1981:5.87%, 1982-2023:11.67%] gives 10.03% (arith 10.05%), gap +19 bp",
+      "expected": 10.026,
+      "observed": 10.22,
+      "targets": [
+        "ex3_all_1926_2023_sp",
+        "ex3_three_period_1926_1963_sp",
+        "ex3_three_period_1964_1981_sp",
+        "ex3_three_period_1982_2023_sp"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "S&P 90/500 1926-2023 reported 10.22%; compounding sub-periods [six_period: 1926-1941:3%, 1942-1963:15.8%, 1964-1981:5.9%, 1982-1999:17%, 2000-2017:5.4%, 2018-2023:12%] gives 9.83% (arith 9.97%), gap +39 bp",
+      "expected": 9.825,
+      "observed": 10.22,
+      "targets": [
+        "ex3_all_1926_2023_sp",
+        "ex3_six_period_1926_1941_sp",
+        "ex3_six_period_1942_1963_sp",
+        "ex3_six_period_1964_1981_sp",
+        "ex3_six_period_1982_1999_sp",
+        "ex3_six_period_2000_2017_sp",
+        "ex3_six_period_2018_2023_sp"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "pass",
+      "message": "S&P 90/500 1926-1963 reported 10.23%; compounding sub-periods [six_period: 1926-1941:3%, 1942-1963:15.8%] gives 10.23% (arith 10.41%), gap +0 bp",
+      "expected": 10.227,
+      "observed": 10.23,
+      "targets": [
+        "ex3_three_period_1926_1963_sp",
+        "ex3_six_period_1926_1941_sp",
+        "ex3_six_period_1942_1963_sp"
+      ]
+    },
+    {
+      "check": "compounding",
+      "status": "fail",
+      "message": "S&P 90/500 1982-2023 reported 11.67%; compounding sub-periods [six_period: 1982-1999:17%, 2000-2017:5.4%, 2018-2023:12%] gives 11.18% (arith 11.31%), gap +49 bp",
+      "expected": 11.184,
+      "observed": 11.67,
+      "targets": [
+        "ex3_three_period_1982_2023_sp",
+        "ex3_six_period_1982_1999_sp",
+        "ex3_six_period_2000_2017_sp",
+        "ex3_six_period_2018_2023_sp"
+      ]
+    },
+    {
+      "check": "citations",
+      "status": "warn",
+      "message": "24 references, 20 in-text citations, 1 inconsistencies",
+      "expected": null,
+      "observed": null,
+      "targets": []
+    },
+    {
+      "check": "citation_year",
+      "status": "warn",
+      "message": "In-text 'Shumway 1994)' but reference list has Shumway [1997]",
+      "expected": null,
+      "observed": null,
+      "targets": [
+        "Shumway"
+      ]
+    },
+    {
+      "check": "citation_uncited",
+      "status": "warn",
+      "message": "References never cited in text: Berk 2020, Davis 2000, Harvey 2016, Ibbotson 2020",
+      "expected": null,
+      "observed": null,
+      "targets": []
+    }
+  ],
+  "red_flags": [
+    {
+      "code": "SPLICED_SERIES",
+      "severity": "medium",
+      "message": "Exhibit 3 splices SBBI index data (gross, no costs) through 1981 with fund returns (net of fees) afterwards, so pre/post-1982 sub-periods are not like-for-like.",
+      "evidence": "Exhibit 3 note",
+      "source": "llm"
+    },
+    {
+      "code": "ENDPOINT_SELECTION",
+      "severity": "medium",
+      "message": "Sub-period boundaries and wealth-reset points (1999, 2007) are chosen ex post at turning points, which maximizes the visual reversal.",
+      "evidence": "Exhibits 1-2",
+      "source": "llm"
+    },
+    {
+      "code": "RANDOMNESS_UNTESTED",
+      "severity": "medium",
+      "message": "The central 'random fluctuation' explanation is asserted, not tested (no simulation or bootstrap).",
+      "evidence": "pp.11-12",
+      "source": "llm"
+    },
+    {
+      "code": "CLAIM_WITHOUT_EXHIBIT",
+      "severity": "low",
+      "message": "'Large value outperformed for every 120-month roll ending 1963-1990' is stated without an exhibit.",
+      "evidence": "p.13",
+      "source": "llm"
+    },
+    {
+      "code": "SMB_DEFINITION_UNCLEAR",
+      "severity": "low",
+      "message": "How the SMB column is annualized (arithmetic monthly x12? compounded?) is not specified.",
+      "evidence": "Exhibit 3",
+      "source": "llm"
+    },
+    {
+      "code": "NO_TRANSACTION_COSTS",
+      "severity": "medium",
+      "message": "Results are not shown net of transaction costs / bid-ask spreads.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "NO_SIGNIFICANCE_TESTS",
+      "severity": "medium",
+      "message": "No t-statistics / p-values / confidence intervals reported for the headline differences.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "NO_OUT_OF_SAMPLE",
+      "severity": "medium",
+      "message": "No explicit out-of-sample or hold-out validation.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "SURVIVORSHIP_UNADDRESSED",
+      "severity": "low",
+      "message": "Survivorship / delisting bias is not discussed.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "LOOKAHEAD_UNADDRESSED",
+      "severity": "low",
+      "message": "Look-ahead / reporting-lag handling is not stated.",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "DESCRIPTIVE_ONLY",
+      "severity": "info",
+      "message": "Evidence is descriptive (no formal statistical tests).",
+      "evidence": "",
+      "source": "heuristic"
+    },
+    {
+      "code": "PROPRIETARY_DATA",
+      "severity": "low",
+      "message": "Uses proprietary data: Ibbotson SBBI Yearbook.",
+      "evidence": "Public substitute: French Portfolios_Formed_on_ME (Lo 20 / Lo 10 VW) for small; French market (Mkt-RF+RF) for large",
+      "source": "heuristic"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "Small Stocks 1926-2023 reported 11.83%; compounding sub-periods [three_period: 1926-1963:10.3%, 1964-1981:13.54%, 1982-2023:11.5%] gives 11.40% (arith 11.41%), gap +43 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "Small Stocks 1926-2023 reported 11.83%; compounding sub-periods [six_period: 1926-1941:-1.2%, 1942-1963:19.5%, 1964-1981:13.5%, 1982-1999:12.8%, 2000-2017:10%, 2018-2023:7.8%] gives 11.13% (arith 11.33%), gap +70 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "Small Stocks 1982-2023 reported 11.5%; compounding sub-periods [six_period: 1982-1999:12.8%, 2000-2017:10%, 2018-2023:7.8%] gives 10.87% (arith 10.89%), gap +63 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "S&P 90/500 1926-2023 reported 10.22%; compounding sub-periods [three_period: 1926-1963:10.23%, 1964-1981:5.87%, 1982-2023:11.67%] gives 10.03% (arith 10.05%), gap +19 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "S&P 90/500 1926-2023 reported 10.22%; compounding sub-periods [six_period: 1926-1941:3%, 1942-1963:15.8%, 1964-1981:5.9%, 1982-1999:17%, 2000-2017:5.4%, 2018-2023:12%] gives 9.83% (arith 9.97%), gap +39 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "INTERNAL_INCONSISTENCY",
+      "severity": "medium",
+      "message": "S&P 90/500 1982-2023 reported 11.67%; compounding sub-periods [six_period: 1982-1999:17%, 2000-2017:5.4%, 2018-2023:12%] gives 11.18% (arith 11.31%), gap +49 bp",
+      "evidence": "",
+      "source": "consistency"
+    },
+    {
+      "code": "CITATION_MISMATCH",
+      "severity": "low",
+      "message": "In-text 'Shumway 1994)' but reference list has Shumway [1997]",
+      "evidence": "",
+      "source": "citations"
+    }
+  ]
+}

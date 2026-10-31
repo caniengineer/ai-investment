@@ -30,7 +30,7 @@ class LLMProvider(ABC):
     """Abstract base class for LLM providers."""
 
     @abstractmethod
-    def complete(self, messages: list, system: str = "") -> LLMResponse:
+    def complete(self, messages: list, system: str = "", max_tokens: int = 4096) -> LLMResponse:
         """Send messages and get a text response."""
         ...
 
@@ -52,9 +52,9 @@ class AnthropicProvider(LLMProvider):
         self.model = "claude-sonnet-4-20250514"
         self.provider_name = "anthropic"
 
-    def complete(self, messages: list, system: str = "") -> LLMResponse:
+    def complete(self, messages: list, system: str = "", max_tokens: int = 4096) -> LLMResponse:
         start = time.time()
-        kwargs = {"model": self.model, "max_tokens": 4096, "messages": messages}
+        kwargs = {"model": self.model, "max_tokens": max_tokens, "messages": messages}
         if system:
             kwargs["system"] = system
         response = self.client.messages.create(**kwargs)
@@ -132,7 +132,7 @@ class OpenAIProvider(LLMProvider):
         self.model = "gpt-4o"
         self.provider_name = "openai"
 
-    def complete(self, messages: list, system: str = "") -> LLMResponse:
+    def complete(self, messages: list, system: str = "", max_tokens: int = 4096) -> LLMResponse:
         start = time.time()
         oai_messages = []
         if system:
@@ -141,7 +141,7 @@ class OpenAIProvider(LLMProvider):
             oai_messages.append({"role": msg["role"], "content": msg["content"]})
 
         response = self.client.chat.completions.create(
-            model=self.model, messages=oai_messages, max_tokens=4096
+            model=self.model, messages=oai_messages, max_tokens=max_tokens
         )
         latency = (time.time() - start) * 1000
 
